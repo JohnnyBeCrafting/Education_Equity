@@ -1,0 +1,182 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    // $(document).ready(function () {
+    //     $('.dropdown-toggle').dropdown();
+    // });
+
+$(document).ready(function(){
+
+	// video is hidden
+
+
+	// on play-btn click, btn disappears, and video appears
+
+	// when user clicks outside of screen, video disappears and play-btn reappears
+	$('#video-play').click(function(){
+		$('#video-frame').css('display', 'inline-block');
+
+		$('.play-btn').hide();
+	});
+
+	//Support Page display quote from supporting organizations and companies//
+
+	var company_one = {
+
+		company: 'Google',
+		person: 'Joe Shmo',
+		quote: 'Bacon ipsum dolor amet porchetta ball tip pastrami, capicola t-bone jowl prosciutto. Chicken shank corned beef porchetta pork alcatra doner ham hock kielbasa leberkas tenderloin chuck ham sirloin. Shoulder venison filet mignon ground round. Turkey drumstick bresaola, short loin kevin ball tip capicola tenderloin doner cupim shoulder meatloaf jowl boudin.'
+
+	};
+
+	var company_two = {
+
+		company: 'Yahoo',
+		person: 'John Doe',
+		quote: 'Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.'
+	}
+
+
+	var company_three = {
+
+		company: 'Dropbox',
+		person: 'Frank Furters',
+		quote: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
+	}
+
+
+	var company_four = {
+
+		company: 'Salesforce',
+		person: 'Frank Fresh',
+		quote: "It ain't Ralph tho"
+	}
+
+	console.log(company_one.company);
+
+		
+		$('#first-logo').hover(function(){
+			$('.logo-quote').html(company_one.quote);
+			$('.logo-person').html(company_one.person);
+			$('.logo-span').show(company_one.company);
+		});
+		
+		$('#second-logo').hover(function(){
+			$('.logo-quote').html(company_two.quote);
+			$('.logo-person').html(company_two.person);
+		});
+
+		$('#third-logo').hover(function(){
+			$('.logo-quote').html(company_three.quote);
+			$('.logo-person').html(company_three.person);
+		});
+
+		$('#fourth-logo').hover(function(){
+			$('.logo-quote').html(company_four.quote);
+			$('.logo-person').html(company_four.person);
+		});
+});
+
+</script>
+<script src="{{ "/assets/js/bootstrap.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/retina-1.1.0.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/numscroller.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/odometer.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/jquery.hoverdir.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/jquery.hoverex.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/jquery.prettyPhoto.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/jquery.isotope.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/custom.js" | prepend: site.baseurl }}"></script>
+{% if site.analytics %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '{{ site.analytics }}', 'auto');
+  ga('send', 'pageview');
+
+</script>
+{% endif %}
+<script>
+// Portfolio
+(function($) {
+	"use strict";
+	var $container = $('.portfolio'),
+		$items = $container.find('.portfolio-item'),
+		portfolioLayout = 'fitRows';
+		
+		if( $container.hasClass('portfolio-centered') ) {
+			portfolioLayout = 'masonry';
+		}
+				
+		$container.isotope({
+			filter: '*',
+			animationEngine: 'best-available',
+			layoutMode: portfolioLayout,
+			animationOptions: {
+			duration: 750,
+			easing: 'linear',
+			queue: false
+		},
+		masonry: {
+		}
+		}, refreshWaypoints());
+		
+		function refreshWaypoints() {
+			setTimeout(function() {
+			}, 1000);   
+		}
+				
+		$('nav.portfolio-filter ul a').on('click', function() {
+				var selector = $(this).attr('data-filter');
+				$container.isotope({ filter: selector }, refreshWaypoints());
+				$('nav.portfolio-filter ul a').removeClass('active');
+				$(this).addClass('active');
+				return false;
+		});
+		
+		function getColumnNumber() { 
+			var winWidth = $(window).width(), 
+			columnNumber = 1;
+		
+			if (winWidth > 1200) {
+				columnNumber = 5;
+			} else if (winWidth > 950) {
+				columnNumber = 4;
+			} else if (winWidth > 600) {
+				columnNumber = 3;
+			} else if (winWidth > 400) {
+				columnNumber = 2;
+			} else if (winWidth > 250) {
+				columnNumber = 1;
+			}
+				return columnNumber;
+			}       
+			
+			function setColumns() {
+				var winWidth = $(window).width(), 
+				columnNumber = getColumnNumber(), 
+				itemWidth = Math.floor(winWidth / columnNumber);
+				
+				$container.find('.portfolio-item').each(function() { 
+					$(this).css( { 
+					width : itemWidth + 'px' 
+				});
+			});
+		}
+		
+		function setPortfolio() { 
+			setColumns();
+			$container.isotope('reLayout');
+		}
+			
+		$container.imagesLoaded(function () { 
+			setPortfolio();
+		});
+		
+		$(window).on('resize', function () { 
+		setPortfolio();          
+	});
+})(jQuery);
+</script>

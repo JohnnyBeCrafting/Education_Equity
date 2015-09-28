@@ -1,0 +1,112 @@
+---
+layout: bill
+title: THE BILL
+permalink: /bill/
+---
+
+
+<div class="bill-wrapper">
+	<div class="container">
+      <div class="row bill-description">
+      		<h1>What is the Education Equity Act?</h1>
+            <h2>This is a simple hero unit, a simple jumbotron-style component for calling extra 7
+              attention to featured content or information.</h2>
+            <p><a class="btn btn-primary btn-large">Learn more</a></p>
+        </div>
+   </div>
+</div>
+
+	<div class="bill_section">
+		<div class="column-left column-text left-bg-color left-mobile-one">
+			<h3 class="sub-bill-cap">New Tax Revenue</h3>
+			<p class="mobile-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+			<ul class="mobile-ul">
+				<li>fact 1</li>
+				<li>fact 1</li>
+				<li>fact 1</li>
+			</ul>
+		</div>
+		<div class="column-right column-text right-one-bg">
+			
+			<div class="overlay">
+				<span class="span-dollar">$</span>
+				<div class="numscroller overlay-number" data-slno='1' data-min='0' data-max='1.5' data-increment='0.1' data-delay="1">0</div>
+				<p>(million)</p>
+			</div>
+		</div>
+	</div>
+	<div class="bill_section">
+		<div class="column-left column-text right-bg-color right-two-bg">
+			<div class="overlay">
+				<div class="numscroller overlay-number" data-slno='1' data-min='0' data-max="5000" data-increment="1" data-delay='1' data-increment='1000'>0</div>
+			</div>
+		</div>
+		<div class="column-right column-text left-bg-color right-mobile-two">
+			<h3 class="sub-bill-cap">Higher Enrollment at Universities</h3>
+				<p class="mobile-sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+				<ul class="mobile-ul">
+					<li>fact 1</li>
+					<li>fact 1</li>
+					<li>fact 1</li>
+				</ul>
+		</div>
+	</div>
+	<div class="bill_section">
+		<div class="column-left column-text left-bg-color left-mobile-three">
+			   <h3 class="sub-bill-cap">A productive workforce</h3>
+				<ul class="mobile-ul">
+					<li>fact 1</li>
+					<li>fact 1</li>
+					<li>fact 1</li>
+				</ul>
+		</div>
+		<div class="column-right column-text right-bg-color right-three-bg">
+			<div class="overlay">
+				<div class="numscroller overlay-number" data-slno='1' data-min='0' data-max="5000" data-increment="1" data-delay='1' data-increment='1000'>0</div>
+			</div>
+		</div>
+	</div>
+	<div class="bill_section sub_section">
+		<h3 class="text-center bill-heading bill-heading-three">CLASSROOM IMPACT IF PASSED</h3>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-xs-12">
+					<div class="well border-half">
+						<h3>Salem State University</h3>
+						<blockquote>
+							<p>Bacon ipsum dolor amet ground round bacon filet mignon pork sirloin sausage prosciutto boudin jowl tri-tip pork belly meatloaf chicken. Turducken pancetta ribeye, frankfurter turkey beef landjaeger pork fatback shankle bresaola.</p>
+							<footer>John Doe- President of Salem University</footer>
+						</blockquote>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-12 col-lg-6">
+					<div class="well">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/3_fzmVSZZdQ" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <img src="/assets/img/band.png" /> -->
+	<div class="bill_section mobile_four sub_section">
+		<div class="quote-container">
+			<div class="text-center quote-position">
+				<p>It's hard to think that with all this sacrifice, college is still not an option. It gets hard to stay hopeful</p>
+				<p>Valeria Do Vale</p>
+			</div>
+		</div>
+	</div>
+	<div class="bill_section five sub_section">
+		<h3 class="text-center bill-heading">HUMAN IMPACT IF PASSED</h3>
+		<div class="container">
+			<div class="well border-half">
+			<div class="row">
+			{% for video in site.videos %}
+				<div class="col-xs-12 col-sm-6 col-lg-4">
+					{{video.url}}
+					<p>{{video.name}}-<span> {{video.college}}</span></p>
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</div>

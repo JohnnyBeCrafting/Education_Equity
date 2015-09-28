@@ -1,0 +1,59 @@
+<div class="news-main-wrapper">
+    <div class="container">
+
+    		<div class="row update-wrapper">
+    			<h1>{{site.title}}</h1>
+    			<p>News and Updates</p>
+    		</div>
+
+    		<div class="row news-container">
+    			<div class="col-lg-4">
+    				    {% for post in site.categories['blog'] limit: 1 %}
+                    <! -- Blog Post -->
+                    <a href="{{ post.url | prepend: site.baseurl }}">
+                        <img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ post.img }}">
+                    </a>    
+                    <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
+                    <p><csmall>{{ post.date | date: "%b %-d, %Y" }}. | By: {{ post.author }}</csmall></p>
+                    {{ post.excerpt }}
+                    <p><a href="{{ post.url | prepend: site.baseurl }}">[Read More]</a></p>
+                    <div class="hline"></div>
+
+                    <div class="spacing"></div>
+                {% endfor %}
+    			</div>
+    			<div class="col-lg-4">
+                    <!-- INCLUDE PRESS POSTS HERE FROM NEWS. PRESS.HTML -->
+    			{% for post in site.categories['press'] %}
+                    <! -- Press Post -->
+                    <a href="{{ post.url | prepend: site.baseurl }}">
+                        <img class="img-responsive" src="{{ "/assets/img/press/" | prepend: site.baseurl }}{{ post.img }}">
+                    </a>    
+                    <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
+                    <p><csmall>{{ post.date | date: "%b %-d, %Y" }}. | By: {{ post.author }}</csmall></p>
+                    {{ post.excerpt }}
+                    <p><a href="{{ post.url | prepend: site.baseurl }}">[Read More]</a></p>
+                    <div class="hline"></div>
+
+                    <div class="spacing"></div>
+                {% endfor %}
+    			</div>
+    			<div class="col-lg-4">
+                    <!-- INCLUDE HSTRY THUMBNAILS -->
+    					    {% for post in site.categories['project'] limit: 1 %}
+                    <! -- HSTRY THUMBNAILS-->
+                    <a href="{{ post.url | prepend: site.baseurl }}">
+                        <img class="img-responsive" src="{{ "/assets/img/project/" | prepend: site.baseurl }}{{ post.img }}">
+                    </a>    
+                    <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
+                    <p><csmall>{{ post.date | date: "%b %-d, %Y" }}. | By: {{ post.author }}</csmall></p>
+                    {{ post.excerpt }}
+                    <p><a href="{{ post.url | prepend: site.baseurl }}">[Read More]</a></p>
+                    <div class="hline"></div>
+
+                    <div class="spacing"></div>
+                {% endfor %}
+    			</div>
+    		</div>
+    </div>
+</div>
